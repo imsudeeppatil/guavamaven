@@ -2,12 +2,8 @@ pipeline {
     agent any
 
     tools {
-        jdk 'JDK'          // Matches the name you configured
-        maven 'Maven'      // Matches the name you configured
-    }
-
-    environment {
-        // No deployment needed here since your app is console-based
+        jdk 'JDK'          // Use the tool names you configured in Jenkins
+        maven 'Maven'
     }
 
     stages {
@@ -32,10 +28,10 @@ pipeline {
 
     post {
         success {
-            echo 'Build and execution successful!'
+            echo '✅ Build and execution successful!'
         }
         failure {
-            echo 'Something went wrong!'
+            echo '❌ Build failed!'
         }
     }
 }
